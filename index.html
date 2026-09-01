@@ -1,9 +1,85 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sunshine's Closet ☀️</title>
+  <style>
+    :root {
+      --bg: #fbf6ee; --bg-alt: #f4ead9; --card: #ffffff;
+      --ink: #2f2a25; --muted: #857a6c; --line: #ece1cf;
+      --terracotta: #e07a5f; --sage: #7fa08a; --sand: #d6a969;
+      --shadow: 0 14px 36px -20px rgba(70,50,30,.5);
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #201c18; --bg-alt: #2a241e; --card: #2b2621;
+        --ink: #f2eadd; --muted: #b3a696; --line: #3a332b;
+        --terracotta: #eb8e75; --sage: #9cbaa4; --sand: #e4bd7f;
+        --shadow: 0 16px 40px -20px rgba(0,0,0,.7);
+      }
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh; color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, "Noto Sans KR", sans-serif;
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at 85% 15%, rgba(224,122,95,.22), transparent 40%),
+        radial-gradient(circle at 10% 88%, rgba(127,160,138,.20), transparent 45%),
+        var(--bg);
+      display: flex; align-items: center; justify-content: center; padding: 32px 20px;
+    }
+    .serif { font-family: Georgia, "Times New Roman", "Nanum Myeongjo", serif; }
+    .hero { max-width: 640px; text-align: center; }
+    .sun { font-size: 3rem; line-height: 1; }
+    h1 { font-size: clamp(2.2rem, 7vw, 3.4rem); margin: 14px 0 6px; letter-spacing: -.01em; }
+    .tag { color: var(--terracotta); font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: .8rem; }
+    p.lead { color: var(--muted); font-size: 1.08rem; max-width: 46ch; margin: 12px auto 30px; }
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--terracotta); color: #fff; text-decoration: none; font-weight: 700;
+      padding: 15px 28px; border-radius: 999px; box-shadow: var(--shadow);
+      transition: transform .16s ease;
+    }
+    .cta:hover { transform: translateY(-3px); }
+    .card {
+      margin-top: 34px; background: var(--card); border: 1px solid var(--line);
+      border-radius: 22px; padding: 26px; box-shadow: var(--shadow); text-align: left;
+    }
+    .card h2 { margin: 0 0 4px; font-size: 1.15rem; }
+    .card p { margin: 0 0 16px; color: var(--muted); font-size: .95rem; }
+    .meta { display: flex; flex-wrap: wrap; gap: 8px; }
+    .meta span {
+      background: var(--bg-alt); border: 1px solid var(--line);
+      padding: 6px 13px; border-radius: 999px; font-size: .85rem; font-weight: 600;
+    }
+    footer { margin-top: 30px; color: var(--muted); font-size: .85rem; }
+  </style>
+</head>
 <body>
-  <h1>YOUR NAME</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
-</body>
+  <main class="hero">
+    <div class="sun">☀️</div>
+    <div class="tag">Sunshine's Closet</div>
+    <h1 class="serif">Chào mừng bạn ghé thăm!</h1>
+    <p class="lead">Góc nhỏ chia sẻ gu thời trang &amp; những bộ phối đồ (코디) mình yêu thích — nhẹ nhàng, xinh xắn, đậm chất Hàn Quốc.</p>
 
+    <div class="card">
+      <h2>👗 Cody mùa hè phong cách Hàn Quốc</h2>
+      <p>6 bộ phối gợi ý trên Musinsa cho dáng nhỏ nhắn — mát mẻ cho mùa hè &amp; gọn nhẹ cho những chuyến du lịch.</p>
+      <div class="meta">
+        <span>158 cm / 45 kg</span>
+        <span>Style Hàn Quốc</span>
+        <span>Mùa hè &amp; Du lịch</span>
+        <span>Kèm từ khoá 무신사</span>
+      </div>
+    </div>
+
+    <p style="margin-top:28px;">
+      <a class="cta" href="summer-outfits.html">Xem bộ sưu tập cody →</a>
+    </p>
+
+    <footer>☀️ Sunshine's Closet · Made with love</footer>
+  </main>
+</body>
 </html>

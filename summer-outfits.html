@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cody Mùa Hè Hàn Quốc · 158cm / 45kg</title>
+  <style>
+    :root {
+      --bg: #fbf6ee;
+      --bg-alt: #f4ead9;
+      --card: #ffffff;
+      --ink: #2f2a25;
+      --muted: #857a6c;
+      --line: #ece1cf;
+      --terracotta: #e07a5f;
+      --sage: #7fa08a;
+      --sky: #8bb8cc;
+      --sand: #d6a969;
+      --shadow: 0 10px 30px -18px rgba(70, 50, 30, .45);
+      --radius: 20px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #201c18;
+        --bg-alt: #2a241e;
+        --card: #2b2621;
+        --ink: #f2eadd;
+        --muted: #b3a696;
+        --line: #3a332b;
+        --terracotta: #eb8e75;
+        --sage: #9cbaa4;
+        --sky: #a3cbdd;
+        --sand: #e4bd7f;
+        --shadow: 0 12px 34px -18px rgba(0, 0, 0, .7);
+      }
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", "Noto Sans KR", sans-serif;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .serif { font-family: Georgia, "Times New Roman", "Nanum Myeongjo", serif; }
+
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 22px; }
+
+    /* ---------- Hero ---------- */
+    header.hero {
+      background:
+        radial-gradient(circle at 82% 18%, rgba(224,122,95,.20), transparent 42%),
+        radial-gradient(circle at 12% 82%, rgba(127,160,138,.20), transparent 45%),
+        var(--bg-alt);
+      border-bottom: 1px solid var(--line);
+      padding: 62px 0 54px;
+      text-align: center;
+    }
+    .kicker {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 13px; letter-spacing: .18em; text-transform: uppercase;
+      color: var(--terracotta); font-weight: 700;
+      background: var(--card); border: 1px solid var(--line);
+      padding: 7px 16px; border-radius: 999px; box-shadow: var(--shadow);
+    }
+    header.hero h1 {
+      font-size: clamp(2.1rem, 6vw, 3.4rem);
+      line-height: 1.1; margin: 20px auto 10px; max-width: 15ch;
+      font-weight: 700; letter-spacing: -.01em;
+    }
+    header.hero p.lead {
+      color: var(--muted); max-width: 46ch; margin: 0 auto 26px;
+      font-size: 1.05rem;
+    }
+    .chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    .chip {
+      background: var(--card); border: 1px solid var(--line);
+      padding: 8px 15px; border-radius: 999px; font-size: .9rem; font-weight: 600;
+      display: inline-flex; align-items: center; gap: 7px;
+    }
+    .chip .dot { width: 8px; height: 8px; border-radius: 50%; }
+
+    /* ---------- Sections ---------- */
+    section { padding: 54px 0; }
+    .sec-head { margin-bottom: 30px; }
+    .sec-head .eyebrow {
+      font-size: 12px; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--sand); font-weight: 700;
+    }
+    .sec-head h2 {
+      font-size: clamp(1.55rem, 4vw, 2.15rem); margin: 6px 0 8px; font-weight: 700;
+    }
+    .sec-head p { color: var(--muted); max-width: 60ch; margin: 0; }
+
+    /* ---------- Principles ---------- */
+    .principles { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+    .principle {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 22px; box-shadow: var(--shadow);
+    }
+    .principle .num {
+      font-family: Georgia, serif; font-size: 1.5rem; color: var(--terracotta); font-weight: 700;
+    }
+    .principle h3 { margin: 6px 0 6px; font-size: 1.05rem; }
+    .principle p { margin: 0; color: var(--muted); font-size: .93rem; }
+    .principle .kr { color: var(--sage); font-weight: 600; font-size: .85rem; }
+
+    /* ---------- Outfit cards ---------- */
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 22px; }
+    .card {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      overflow: hidden; box-shadow: var(--shadow); display: flex; flex-direction: column;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 18px 40px -20px rgba(70,50,30,.5); }
+    .card .banner {
+      padding: 18px 22px; color: #fff; position: relative;
+      display: flex; align-items: flex-start; justify-content: space-between; gap: 12px;
+    }
+    .card .banner .no {
+      font-family: Georgia, serif; font-size: 2.2rem; font-weight: 700; line-height: 1; opacity: .85;
+    }
+    .card .banner .occ {
+      background: rgba(255,255,255,.22); backdrop-filter: blur(3px);
+      border: 1px solid rgba(255,255,255,.35);
+      font-size: .74rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      padding: 6px 11px; border-radius: 999px; white-space: nowrap;
+    }
+    .card .body { padding: 20px 22px 24px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+    .card h3 { margin: 0; font-size: 1.22rem; }
+    .card .kr-name { color: var(--muted); font-size: .9rem; margin-top: 2px; font-weight: 600; }
+    .swatches { display: flex; gap: 7px; }
+    .swatches span { width: 26px; height: 26px; border-radius: 8px; border: 1px solid rgba(0,0,0,.08); }
+    .items { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 11px; }
+    .items li { display: flex; flex-direction: column; gap: 3px; }
+    .items .label { font-weight: 600; font-size: .95rem; }
+    .items .kw {
+      align-self: flex-start; font-family: "SF Mono", ui-monospace, "Cascadia Code", Menlo, monospace;
+      font-size: .78rem; color: var(--sage); background: var(--bg-alt);
+      border: 1px dashed var(--line); padding: 2px 9px; border-radius: 7px;
+    }
+    .tip {
+      margin-top: auto; background: var(--bg-alt); border-left: 3px solid var(--terracotta);
+      padding: 11px 14px; border-radius: 0 12px 12px 0; font-size: .9rem; color: var(--ink);
+    }
+    .tip b { color: var(--terracotta); }
+
+    /* ---------- Shopping guide ---------- */
+    .shop { background: var(--bg-alt); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+    .shop-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+    .shop-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; box-shadow: var(--shadow); }
+    .shop-card h3 { margin: 0 0 12px; font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+    .shop-card ol, .shop-card ul { margin: 0; padding-left: 18px; color: var(--muted); font-size: .93rem; }
+    .shop-card li { margin-bottom: 8px; }
+    .shop-card li b { color: var(--ink); }
+    .brandline { display: flex; flex-wrap: wrap; gap: 8px; }
+    .brandline .b {
+      background: var(--bg-alt); border: 1px solid var(--line); border-radius: 8px;
+      padding: 6px 12px; font-size: .85rem; font-weight: 600;
+    }
+    .brandline .b small { color: var(--muted); font-weight: 400; }
+
+    .note {
+      background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 18px 22px; margin-top: 22px; font-size: .9rem; color: var(--muted);
+    }
+    .note b { color: var(--ink); }
+
+    footer {
+      text-align: center; padding: 40px 22px 54px; color: var(--muted); font-size: .88rem;
+      border-top: 1px solid var(--line);
+    }
+    footer a { color: var(--terracotta); }
+    a.back { color: var(--terracotta); text-decoration: none; font-weight: 600; font-size: .92rem; }
+    a.back:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <span class="kicker">☀️ Sunshine's Closet · K-Style</span>
+      <h1 class="serif">Cody mùa hè phong cách Hàn Quốc</h1>
+      <p class="lead">Bộ sưu tập 코디 (phối đồ) gợi ý trên Musinsa cho nàng cao <b>158cm</b>, nặng <b>45kg</b> — dáng nhỏ nhắn, thanh mảnh. Mát mẻ cho mùa hè &amp; gọn nhẹ cho những chuyến du lịch.</p>
+      <div class="chips">
+        <span class="chip"><span class="dot" style="background:var(--terracotta)"></span>158 cm</span>
+        <span class="chip"><span class="dot" style="background:var(--sage)"></span>45 kg</span>
+        <span class="chip"><span class="dot" style="background:var(--sky)"></span>Style Hàn Quốc</span>
+        <span class="chip"><span class="dot" style="background:var(--sand)"></span>Mùa hè &amp; Du lịch</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- PRINCIPLES -->
+  <section class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Trước khi bắt đầu</div>
+      <h2 class="serif">Nguyên tắc vàng cho dáng nhỏ nhắn (키작녀)</h2>
+      <p>Công thức người Hàn hay dùng để "ăn gian" chiều cao: <b>cạp cao + để lộ mắt cá + chất liệu nhẹ rủ</b>. Nhớ 4 điều này là mọi bộ đồ đều kéo dài chân và cân đối tỉ lệ.</p>
+    </div>
+    <div class="principles">
+      <div class="principle">
+        <div class="num">01</div>
+        <h3>Cạp cao & tôn eo</h3>
+        <p>Ưu tiên quần/chân váy <b>cạp cao</b>, sơ vạt trước hoặc chọn áo lửng vừa phải (semi-crop) để đẩy eo lên cao. <span class="kr">하이웨스트 · 세미크롭</span></p>
+      </div>
+      <div class="principle">
+        <div class="num">02</div>
+        <h3>Lộ mắt cá chân</h3>
+        <p>Quần dài lửng <b>8–9 phân</b> hoặc quần short, chân váy trên gối — khoe phần mảnh nhất là mắt cá để chân trông dài hơn. <span class="kr">8부·9부 기장</span></p>
+      </div>
+      <div class="principle">
+        <div class="num">03</div>
+        <h3>Tông màu liền mạch</h3>
+        <p>Phối cùng một tông (be–kem, trắng–xanh nhạt) tạo đường dọc liền, "hô biến" chiều cao mà vẫn rất Hàn. <span class="kr">톤온톤</span></p>
+      </div>
+      <div class="principle">
+        <div class="num">04</div>
+        <h3>Cân bằng phồng–gọn</h3>
+        <p>Áo rộng thì quần/váy ngắn gọn; quần ống rộng thì áo ôm/lửng. Đừng để cả bộ "nuốt" dáng. Túi mini, phụ kiện nhỏ vừa vóc người. <span class="kr">볼륨 밸런스</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OUTFITS -->
+  <section class="wrap" id="outfits">
+    <div class="sec-head">
+      <div class="eyebrow">6 bộ phối gợi ý</div>
+      <h2 class="serif">Cody theo từng dịp</h2>
+      <p>Mỗi bộ kèm <b>từ khoá tiếng Hàn</b> — copy dán thẳng vào ô tìm kiếm Musinsa để ra đúng loại món đồ. Kéo xuống cuối trang để xem mẹo mua &amp; các thương hiệu nên xem.</p>
+    </div>
+
+    <div class="grid">
+
+      <!-- 1 -->
+      <article class="card">
+        <div class="banner" style="background:linear-gradient(135deg,#e07a5f,#d6a969)">
+          <span class="no">01</span>
+          <span class="occ">Dạo phố · Daily</span>
+        </div>
+        <div class="body">
+          <div>
+            <h3 class="serif">Basic thường ngày</h3>
+            <div class="kr-name">무탠다드 데일리룩</div>
+          </div>
+          <div class="swatches"><span style="background:#f2ede4"></span><span style="background:#c9d3d8"></span><span style="background:#3f4d63"></span></div>
+          <ul class="items">
+            <li><span class="label">Áo thun lửng tay ngắn</span><span class="kw">반팔 크롭 티</span></li>
+            <li><span class="label">Quần jean ống rộng cạp cao (lửng mắt cá)</span><span class="kw">하이웨스트 와이드 데님</span></li>
+            <li><span class="label">Giày bệt mũi tròn / mesh flat</span><span class="kw">메쉬 플랫슈즈</span></li>
+            <li><span class="label">Túi đeo vai mini</span><span class="kw">미니 숄더백</span></li>
+          </ul>
+          <p class="tip"><b>💡 Bí quyết:</b> sơ hờ vạt áo trước vào cạp quần — eo cao lên ngay, chân dài thêm vài phân.</p>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="card">
+        <div class="banner" style="background:linear-gradient(135deg,#8bb8cc,#7fa08a)">
+          <span class="no">02</span>
+          <span class="occ">Du lịch · Travel</span>
+        </div>
+        <div class="body">
+          <div>
+            <h3 class="serif">Váy liền tiện lợi</h3>
+            <div class="kr-name">여행룩 원피스</div>
+          </div>
+          <div class="swatches"><span style="background:#eef1ee"></span><span style="background:#b8ccd6"></span><span style="background:#d8c6a8"></span></div>
+          <ul class="items">
+            <li><span class="label">Váy liền cotton/linen dáng ngắn trên gối</span><span class="kw">린넨 미니 원피스</span></li>
+            <li><span class="label">Áo khoác cardigan mỏng chống nắng/máy lạnh</span><span class="kw">썸머 가디건</span></li>
+            <li><span class="label">Sneakers retro êm chân</span><span class="kw">레트로 스니커즈</span></li>
+            <li><span class="label">Mũ bucket + túi đeo chéo nhỏ</span><span class="kw">버킷햇 · 미니 크로스백</span></li>
+          </ul>
+          <p class="tip"><b>💡 Bí quyết:</b> một chiếc váy = cả bộ đồ, xếp vali cực gọn. Cardigan mỏng vừa chống nắng vừa chống lạnh máy bay/quán.</p>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="card">
+        <div class="banner" style="background:linear-gradient(135deg,#d6a969,#caa06a)">
+          <span class="no">03</span>
+          <span class="occ">Ngày nắng gắt · Hot day</span>
+        </div>
+        <div class="body">
+          <div>
+            <h3 class="serif">Set linen mát rượi</h3>
+            <div class="kr-name">린넨 셋업</div>
+          </div>
+          <div class="swatches"><span style="background:#efe6d6"></span><span style="background:#dcc9a6"></span><span style="background:#b79b73"></span></div>
+          <ul class="items">
+            <li><span class="label">Áo hai dây / ba lỗ linen</span><span class="kw">린넨 뷔스티에 · 나시</span></li>
+            <li><span class="label">Quần short / bermuda linen cạp cao</span><span class="kw">린넨 반바지</span></li>
+            <li><span class="label">Sandal dây bệt</span><span class="kw">스트랩 샌들</span></li>
+            <li><span class="label">Túi cói / raffia</span><span class="kw">라피아 백</span></li>
+          </ul>
+          <p class="tip"><b>💡 Bí quyết:</b> linen thoáng, thấm mồ hôi nhanh. Phối cả bộ tông be (톤온톤) vừa sang vừa kéo dài dáng.</p>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="card">
+        <div class="banner" style="background:linear-gradient(135deg,#e07a5f,#e0a0a8)">
+          <span class="no">04</span>
+          <span class="occ">Hẹn hò · Cà phê</span>
+        </div>
+        <div class="body">
+          <div>
+            <h3 class="serif">Nữ tính kiểu Hàn</h3>
+            <div class="kr-name">블라우스 &amp; 스커트</div>
+          </div>
+          <div class="swatches"><span style="background:#fbf4ee"></span><span style="background:#e8c7c2"></span><span style="background:#c98d84"></span></div>
+          <ul class="items">
+            <li><span class="label">Áo blouse ren/lưới tay ngắn</span><span class="kw">크로셰 · 시스루 블라우스</span></li>
+            <li><span class="label">Chân váy xếp ly mini / dáng chữ A</span><span class="kw">플리츠 미니스커트</span></li>
+            <li><span class="label">Giày Mary Jane bệt / sandal quai mảnh</span><span class="kw">메리제인 플랫</span></li>
+            <li><span class="label">Trang sức mảnh + túi mini</span><span class="kw">미니백</span></li>
+          </ul>
+          <p class="tip"><b>💡 Bí quyết:</b> chọn blouse dáng lửng + chân váy cạp cao trên gối để giữ eo cao — công thức "hồ ly" của gái Hàn.</p>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="card">
+        <div class="banner" style="background:linear-gradient(135deg,#7fa08a,#8bb8cc)">
+          <span class="no">05</span>
+          <span class="occ">Đi bộ · Sightseeing</span>
+        </div>
+        <div class="body">
+          <div>
+            <h3 class="serif">Thể thao thanh lịch</h3>
+            <div class="kr-name">스포티 · 애슬레저</div>
+          </div>
+          <div class="swatches"><span style="background:#f1f0ec"></span><span style="background:#9fb8a6"></span><span style="background:#39424a"></span></div>
+          <ul class="items">
+            <li><span class="label">Áo thun jersey mềm / áo polo</span><span class="kw">저지 반팔 · 카라티</span></li>
+            <li><span class="label">Chân váy tennis xếp ly (hoặc quần short thể thao)</span><span class="kw">테니스 스커트</span></li>
+            <li><span class="label">Sneakers retro + tất cổ ngắn</span><span class="kw">레트로 스니커즈</span></li>
+            <li><span class="label">Mũ lưỡi trai + túi sling</span><span class="kw">볼캡 · 슬링백</span></li>
+          </ul>
+          <p class="tip"><b>💡 Bí quyết:</b> chân váy tennis ngắn + tất cổ thấp lộ chân — trend "sporty elegance" đi bộ cả ngày vẫn xinh, không lo nóng.</p>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="card">
+        <div class="banner" style="background:linear-gradient(135deg,#6b5b8e,#e07a5f)">
+          <span class="no">06</span>
+          <span class="occ">Tối · Ăn tối</span>
+        </div>
+        <div class="body">
+          <div>
+            <h3 class="serif">Bữa tối du lịch</h3>
+            <div class="kr-name">슬립 원피스 &amp; 가디건</div>
+          </div>
+          <div class="swatches"><span style="background:#efeae2"></span><span style="background:#b6a7c4"></span><span style="background:#4a4059"></span></div>
+          <ul class="items">
+            <li><span class="label">Váy hai dây dáng slip ngắn</span><span class="kw">슬립 미니 원피스</span></li>
+            <li><span class="label">Cardigan len mỏng dáng lửng</span><span class="kw">크롭 가디건</span></li>
+            <li><span class="label">Sandal cao gót nhỏ (kitten heel)</span><span class="kw">스트랩 힐 · 뮬</span></li>
+            <li><span class="label">Túi đeo vai nhỏ</span><span class="kw">미니 숄더백</span></li>
+          </ul>
+          <p class="tip"><b>💡 Bí quyết:</b> khoác cardigan dáng lửng bên ngoài váy slip — giữ điểm eo cao, ban ngày năng động, tối chỉ cần cởi ra là "lên đồ".</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- SHOPPING GUIDE -->
+  <section class="shop">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Mẹo mua sắm</div>
+        <h2 class="serif">Săn đồ trên Musinsa (무신사)</h2>
+        <p>Musinsa là sàn thời trang lớn nhất Hàn Quốc. Có bản <b>Global (global.musinsa.com)</b> tiếng Anh, giao quốc tế — rất tiện để đặt đúng phong cách trong bài.</p>
+      </div>
+      <div class="shop-grid">
+        <div class="shop-card">
+          <h3>🔎 Tìm nhanh</h3>
+          <ol>
+            <li>Vào <b>랭킹 (Ranking)</b> → lọc <b>여성 (Nữ)</b> → chọn mùa <b>여름 (Hè)</b> theo danh mục 상의 (áo) / 하의 (quần) / 원피스 (váy liền).</li>
+            <li>Dán từ khoá tiếng Hàn ở mỗi bộ phía trên vào ô tìm kiếm.</li>
+            <li>Xem tab <b>스냅 (Snap)</b> — ảnh phối đồ đời thực; lọc theo người mẫu cao ~155–160cm để hình dung đúng dáng của bạn.</li>
+          </ol>
+        </div>
+        <div class="shop-card">
+          <h3>📏 Chọn size cho 158/45</h3>
+          <ul>
+            <li>Size Hàn thường rơi vào <b>44 (XS) – 55 (S)</b>.</li>
+            <li>Đồ "free size / oversfit": luôn xem <b>총장 (tổng dài)</b>, <b>어깨 (vai)</b>, <b>밑위 (đũng)</b> — free size dễ bị dài so với dáng nhỏ.</li>
+            <li>Quần: chọn có sẵn phom <b>크롭 / 8부</b> để khỏi phải lên lai.</li>
+            <li>Xem mục <b>리뷰 (review)</b> lọc theo chiều cao/cân nặng gần bạn.</li>
+          </ul>
+        </div>
+        <div class="shop-card">
+          <h3>🏷️ Thương hiệu nên xem</h3>
+          <div class="brandline">
+            <span class="b">무신사 스탠다드 <small>basic, quần slack</small></span>
+            <span class="b">마뗑킴 <small>MATIN KIM · nữ tính</small></span>
+            <span class="b">마르디 메크르디 <small>áo hoa graphic</small></span>
+            <span class="b">필루미네이트 <small>quần đẹp phom</small></span>
+            <span class="b">플레이스 스튜디오 <small>blouse, sơ mi</small></span>
+            <span class="b">로우클래식 <small>tối giản thanh lịch</small></span>
+          </div>
+        </div>
+      </div>
+      <div class="note">
+        <b>Lưu ý:</b> đây là gợi ý <b>loại món đồ + từ khoá</b> để bạn tự chọn mẫu ưng ý và còn hàng theo mùa, không phải link sản phẩm cố định (trend &amp; tồn kho đổi liên tục). Từ khoá tiếng Hàn sẽ cho kết quả sát nhất trên Musinsa. Chúc bạn mua sắm vui vẻ! 🛍️
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p><a class="back" href="index.html">← Về trang chủ</a></p>
+    <p class="serif" style="font-size:1.1rem;color:var(--ink);margin:14px 0 4px;">☀️ Sunshine's Closet</p>
+    <p>Cody mùa hè phong cách Hàn Quốc · gợi ý cho dáng 158cm / 45kg</p>
+  </footer>
+</body>
+</html>
