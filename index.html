@@ -74,7 +74,7 @@
   .hero .wrap{position:relative; z-index:1}
   .hero h1{font-size:clamp(2.3rem,7.5vw,3.5rem); font-weight:500; letter-spacing:-.02em; margin:14px 0 0}
   .hero .lede{font-family:var(--font-display); font-style:italic; font-size:clamp(1.1rem,3.6vw,1.32rem);
-    color:var(--ink-soft); margin-top:16px; max-width:34ch}
+    color:var(--ink-soft); margin-top:16px; max-width:36ch}
   .meta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
   .pill{display:inline-flex; align-items:baseline; gap:7px; padding:8px 13px; border-radius:999px;
     background:var(--surface); border:1px solid var(--line); font-size:.86rem; box-shadow:0 1px 2px var(--shadow)}
@@ -114,7 +114,6 @@
   .hours .row{display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px dashed var(--line); font-size:.92rem}
   .hours .row:last-child{border-bottom:0}
   .hours .row b{font-variant-numeric:tabular-nums; font-weight:600}
-  .hours .now{color:var(--accent-ink)}
   .links{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
   .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 15px; border-radius:999px;
     font-size:.88rem; font-weight:600; text-decoration:none; border:1px solid var(--line-strong); color:var(--ink); background:var(--surface-2)}
@@ -146,6 +145,48 @@
   .target.brown{background:var(--pih-soft); color:var(--pih)}
   .target.glow{background:var(--calm-soft); color:var(--calm)}
 
+  /* ---------- Add-ons ---------- */
+  .tier{margin-top:26px}
+  .tier:first-of-type{margin-top:6px}
+  .tier-head{display:flex; align-items:center; gap:10px; margin-bottom:12px; flex-wrap:wrap}
+  .tier-head .badge{font-size:.7rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; padding:5px 11px; border-radius:999px}
+  .tier-head .badge.a{background:var(--calm); color:#fff}
+  .tier-head .badge.b{background:var(--sun-soft); color:var(--sun)}
+  .tier-head .badge.c{background:var(--pie-soft); color:var(--pie)}
+  .tier-head .sub{font-size:.84rem; color:var(--muted)}
+  .addons{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+  @media(max-width:640px){.addons{grid-template-columns:1fr}}
+  .addon{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:17px; display:flex; flex-direction:column}
+  .addon .name{font-family:var(--font-ko); font-weight:700; font-size:1.04rem}
+  .addon .rom{font-size:.76rem; color:var(--muted); font-weight:500; margin-top:1px}
+  .addon p{font-size:.88rem; color:var(--ink-soft); margin-top:9px; flex:1}
+  .addon .meta{display:flex; flex-wrap:wrap; gap:7px; margin-top:12px; align-items:center}
+  .badge-sm{font-size:.72rem; font-weight:600; padding:3px 9px; border-radius:999px}
+  .badge-sm.red{background:var(--pie-soft); color:var(--pie)}
+  .badge-sm.brown{background:var(--pih-soft); color:var(--pih)}
+  .badge-sm.glow{background:var(--calm-soft); color:var(--calm)}
+  .badge-sm.dt{background:var(--surface-2); color:var(--ink-soft); border:1px solid var(--line)}
+  .addon .price{margin-top:13px; padding-top:11px; border-top:1px dashed var(--line); display:flex; justify-content:space-between; align-items:baseline; gap:8px}
+  .addon .price .k{font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); font-weight:600}
+  .addon .price b{font-weight:700; font-variant-numeric:tabular-nums; font-size:.9rem; text-align:right}
+
+  /* ---------- Price table ---------- */
+  .price-note{background:var(--sun-soft); border-radius:12px; padding:13px 16px; font-size:.85rem; color:var(--ink-soft); margin-bottom:16px}
+  .price-note b{color:var(--ink)}
+  .table-wrap{overflow-x:auto; border:1px solid var(--line); border-radius:var(--radius); -webkit-overflow-scrolling:touch}
+  table.price{width:100%; border-collapse:collapse; font-size:.9rem; min-width:560px}
+  table.price th, table.price td{text-align:left; padding:11px 14px; border-bottom:1px solid var(--line); vertical-align:top}
+  table.price thead th{font-size:.7rem; letter-spacing:.06em; text-transform:uppercase; color:var(--muted); background:var(--surface-2); font-weight:700}
+  table.price tbody tr:last-child td{border-bottom:0}
+  table.price td.nm{font-family:var(--font-ko); font-weight:600; white-space:nowrap}
+  table.price td.nm small{display:block; font-family:var(--font-body); font-weight:500; color:var(--muted); font-size:.72rem; white-space:normal; letter-spacing:0}
+  table.price td.pr{font-weight:700; font-variant-numeric:tabular-nums; white-space:nowrap; text-align:right}
+  table.price tr.have{background:var(--accent-soft)}
+  table.price .have-tag{display:inline-block; margin-left:7px; font-family:var(--font-body); font-size:.66rem; font-weight:700; letter-spacing:.04em; color:#fff; background:var(--accent); padding:2px 7px; border-radius:999px; vertical-align:middle}
+  table.price .grp td{background:var(--surface-2); font-family:var(--font-body); font-size:.72rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft)}
+  .cdot{display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:6px; vertical-align:middle}
+  .cdot.red{background:var(--pie)} .cdot.brown{background:var(--pih)} .cdot.glow{background:var(--calm)}
+
   /* ---------- Phases ---------- */
   .phases{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:30px}
   @media(max-width:640px){.phases{grid-template-columns:1fr}}
@@ -173,6 +214,7 @@
   .visit-card.done{opacity:.62}
   .combo{display:flex; flex-wrap:wrap; gap:7px; margin:10px 0 4px}
   .chip{font-family:var(--font-ko); font-size:.8rem; font-weight:500; padding:4px 10px; border-radius:8px; background:var(--accent-soft); color:var(--accent-ink)}
+  .chip.add{background:var(--calm-soft); color:var(--calm)}
   .visit-note{font-size:.85rem; color:var(--ink-soft); margin-top:8px}
   .visit-note b{color:var(--ink); font-weight:600}
   .toggle{margin-top:12px; display:inline-flex; align-items:center; gap:9px; cursor:pointer; border:1px solid var(--line-strong);
@@ -244,12 +286,12 @@
   <div class="hero-glow" aria-hidden="true"></div>
   <div class="wrap">
     <p class="eyebrow">Lộ trình dưỡng da · 2 tuần/lần · 쁨의원</p>
-    <h1>Làn da khỏe đẹp<br>cho chuyến Thái Lan</h1>
-    <p class="lede">Năm tuần chăm da có chủ đích — làm dịu, đẩy sáng, rồi bảo vệ — để tự tin trước ngày 8/10.</p>
+    <h1>Làn da khỏe,<br>căng bóng cho Thái Lan</h1>
+    <p class="lede">Năm tuần chăm da có chủ đích — làm dịu, đẩy sáng, căng bóng rồi bảo vệ — để tự tin trước ngày 8/10.</p>
     <div class="meta-row">
       <span class="pill"><span class="k">Ngày bay</span><b>Thứ Năm, 8/10/2026</b></span>
       <span class="pill"><span class="k">Đếm ngược</span><b id="countdown">8/10/2026</b></span>
-      <span class="pill"><span class="k">Phác đồ</span><b>3 buổi tại phòng khám</b></span>
+      <span class="pill"><span class="k">Mục tiêu</span><b>Đều màu · căng bóng</b></span>
     </div>
   </div>
 </header>
@@ -259,12 +301,12 @@
   <!-- 1. Goal & concerns -->
   <section id="muc-tieu">
     <div class="sec-head"><span class="no">01</span><div><h2>Mục tiêu &amp; tình trạng da</h2>
-      <p class="lead">Da đang có hai loại vết thâm khác nhau do mụn cũ để lại — chúng cần cách xử lý khác nhau, nên biết rõ tên gọi sẽ giúp bạn trao đổi với bác sĩ dễ hơn.</p></div></div>
+      <p class="lead">Mục tiêu: da <b>khỏe, đều màu, căng bóng</b> cho chuyến đi. Da đang có hai loại thâm khác nhau do mụn cũ — chúng cần cách xử lý khác nhau, nên biết rõ tên gọi sẽ giúp trao đổi với bác sĩ dễ hơn.</p></div></div>
     <div class="concerns">
       <div class="concern red">
         <span class="tag"><span class="dot red"></span>Thâm đỏ</span>
         <p class="sci" style="margin-top:8px">PIE · Hồng ban sau viêm</p>
-        <p>Vết hồng/đỏ do mạch máu li ti giãn sau mụn. Ưu tiên <b>làm dịu, giảm viêm, chống nắng</b> — không chà xát mạnh.</p>
+        <p>Vết hồng/đỏ do mạch máu li ti giãn sau mụn. Cần <b>laser mạch máu</b> (Genesis / Excel V) + làm dịu + chống nắng — gói hiện tại chưa xử lý phần này.</p>
       </div>
       <div class="concern brown">
         <span class="tag"><span class="dot brown"></span>Thâm nâu</span>
@@ -310,13 +352,14 @@
         <div class="phrase"><div class="vi">Đặt trọn gói bạn đã mua</div><div class="kr">피코토닝, 빛타민케어, 기본 마스크 예약하고 싶어요.</div></div>
         <div class="phrase"><div class="vi">Xin lịch 2 tuần/lần, 3 buổi trước 8/10</div><div class="kr">2주에 한 번씩, 10월 8일 전까지 3번 받을 수 있을까요?</div></div>
         <div class="phrase"><div class="vi">Mô tả tình trạng da</div><div class="kr">여드름 자국이 있어요 — 붉은 자국이랑 갈색 색소침착이요.</div></div>
+        <div class="phrase"><div class="vi">Hỏi thêm về Genesis / laser trị đỏ &amp; skin booster</div><div class="kr">붉은기 때문에 제네시스(또는 엑셀브이) 추가하고, 물광주사도 상담하고 싶어요.</div></div>
         <div class="phrase"><div class="vi">Xin làm dịu &amp; đắp mặt nạ sau laser</div><div class="kr">레이저 후에 진정 관리랑 마스크 부탁드려요.</div></div>
         <div class="phrase"><div class="vi">Sắp đi du lịch nắng nhiều, xin lời khuyên</div><div class="kr">곧 태국 여행 가요. 시술 후 햇빛 관리 조언 부탁드려요.</div></div>
       </details>
     </div>
   </section>
 
-  <!-- 3. Treatments -->
+  <!-- 3. Treatments owned -->
   <section id="goi-da-mua">
     <div class="sec-head"><span class="no">03</span><div><h2>Bạn đã mua gì — trị được gì</h2>
       <p class="lead">Ba dịch vụ này bổ trợ nhau: một cái xử lý sắc tố, một cái nuôi da khỏe &amp; làm dịu, một cái “hạ nhiệt” đóng lại buổi trị liệu. Nên làm theo đúng thứ tự này trong mỗi buổi.</p></div></div>
@@ -348,15 +391,119 @@
     </div>
   </section>
 
-  <!-- 4. Timeline -->
+  <!-- 4. Add-on suggestions -->
+  <section id="goi-them">
+    <div class="sec-head"><span class="no">04</span><div><h2>Gợi ý thêm — ngoài gói bạn có</h2>
+      <p class="lead">Gói hiện tại xử lý tốt <b>thâm nâu</b> và cấp ẩm, nhưng còn thiếu phần trị <b>thâm đỏ</b> và tăng <b>độ căng bóng</b>. Dưới đây là các lựa chọn thêm, xếp theo thứ tự ưu tiên cho mục tiêu &amp; quỹ thời gian của bạn.</p></div></div>
+
+    <div class="tier">
+      <div class="tier-head"><span class="badge a">Nên thêm</span><span class="sub">Hiệu quả cao · ít/không downtime · đúng mục tiêu</span></div>
+      <div class="addons">
+        <div class="addon">
+          <div class="name">제네시스 <span class="rom">Genesis toning</span></div>
+          <p>Laser dịu làm co mạch máu giãn → giảm <b>thâm đỏ</b> &amp; hồng ban, se khít lỗ chân lông, mịn da, tăng glow. Gần như không downtime; ghép cùng 피코토닝 thành “dual toning” xử lý cả nâu &amp; đỏ theo từng tầng da. Cần 3+ buổi mới rõ.</p>
+          <div class="meta"><span class="badge-sm red">Thâm đỏ</span><span class="badge-sm glow">Glow · lỗ chân lông</span><span class="badge-sm dt">Downtime ~0</span></div>
+          <div class="price"><span class="k">Giá tham khảo</span><b>~15만원~ /lần<br>(dual toning ~25.9만원~)</b></div>
+        </div>
+        <div class="addon">
+          <div class="name">물광주사 <span class="rom">Aqua glow / skin booster</span></div>
+          <p>Tiêm dưỡng chất cấp nước sâu → da <b>căng bóng, mọng nước</b> tức thì. Lý tưởng làm ~1 tuần trước khi bay để lên hình đẹp. Chỉ hơi lấm tấm vết kim ~1 ngày.</p>
+          <div class="meta"><span class="badge-sm glow">Căng bóng</span><span class="badge-sm dt">Downtime ~1 ngày</span></div>
+          <div class="price"><span class="k">Giá tham khảo</span><b>2cc ~9.9만원~<br>combo ~34.9만원</b></div>
+        </div>
+        <div class="addon">
+          <div class="name">리쥬란 힐러 <span class="rom">Rejuran Healer</span></div>
+          <p>Tinh chất PN (DNA cá hồi) phục hồi &amp; tái tạo da tổn thương do mụn, làm dày hàng rào, mịn kết cấu — nền tảng cho làn da <b>khỏe &amp; căng</b> lâu dài, hợp da từng bị mụn.</p>
+          <div class="meta"><span class="badge-sm glow">Phục hồi · căng khỏe</span><span class="badge-sm red">Hỗ trợ vết mụn</span><span class="badge-sm dt">Downtime 1–2 ngày</span></div>
+          <div class="price"><span class="k">Giá tham khảo</span><b>~24만원~ (2cc)</b></div>
+        </div>
+        <div class="addon">
+          <div class="name">엑셀브이 / 브이빔 <span class="rom">Excel V / V-beam</span></div>
+          <p>Laser mạch máu chuyên trị <b>thâm đỏ / hồng ban cứng đầu</b> — mạnh &amp; trúng đích hơn Genesis. Rửa mặt/trang điểm lại được ngay. Thường 3–4 tuần/lần (không nhất thiết 2 tuần).</p>
+          <div class="meta"><span class="badge-sm red">Thâm đỏ (mạnh)</span><span class="badge-sm dt">Downtime ~0</span></div>
+          <div class="price"><span class="k">Giá tham khảo</span><b>~9–25만원 /lần<br>(tùy vùng)</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-head"><span class="badge b">Nếu dư ngân sách / thời gian</span><span class="sub">Bổ trợ đẹp, không bắt buộc</span></div>
+      <div class="addons">
+        <div class="addon">
+          <div class="name">아쿠아필 <span class="rom">Aqua Peel · hydrafacial</span></div>
+          <p>Hút sạch bã nhờn / mụn đầu đen &amp; cấp ẩm — làm da sạch mịn, tạo “nền” đẹp trước khi bắn laser. Không downtime. Nên làm <b>đầu</b> lộ trình hoặc ngay trước buổi laser.</p>
+          <div class="meta"><span class="badge-sm glow">Sạch · mịn · glow</span><span class="badge-sm dt">Downtime ~0</span></div>
+          <div class="price"><span class="k">Giá tham khảo</span><b>~4–6.6만원 /lần</b></div>
+        </div>
+        <div class="addon">
+          <div class="name">LDM 물방울리프팅 <span class="rom">LDM</span></div>
+          <p>Sóng siêu âm làm <b>dịu, cấp ẩm, tái tạo</b>, rất nhẹ nhàng — tuyệt để hạ nhiệt sau laser &amp; dịu thâm đỏ. Rẻ, mua gói 5–10 lần càng lợi. <em>(Hơi trùng vai trò với 빛타민케어 bạn đã có.)</em></p>
+          <div class="meta"><span class="badge-sm red">Làm dịu</span><span class="badge-sm glow">Cấp ẩm</span><span class="badge-sm dt">Downtime ~0</span></div>
+          <div class="price"><span class="k">Giá tham khảo</span><b>~3–7만원 /lần</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-head"><span class="badge c">Để dành sau chuyến đi</span><span class="sub">Hiệu quả cao nhưng có downtime — không hợp sát ngày bay</span></div>
+      <div class="addons">
+        <div class="addon">
+          <div class="name">포텐자 / 실펌엑스 <span class="rom">Potenza / Sylfirm X — RF vi kim</span></div>
+          <p>RF vi kim trị <b>sẹo rỗ, lỗ chân lông to, thâm đỏ sâu</b> — mạnh nhất cho tổn thương mụn. Nhưng đỏ / đóng vảy li ti 2–5 ngày → làm <b>thật sớm</b> (quanh buổi 1) hoặc để <b>sau</b> khi về, đừng làm sát 8/10.</p>
+          <div class="meta"><span class="badge-sm red">Sẹo · PIE sâu</span><span class="badge-sm brown">Kết cấu</span><span class="badge-sm dt">Downtime 2–5 ngày</span></div>
+          <div class="price"><span class="k">Giá tham khảo</span><b>~20–40만원+ /lần</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Price menu -->
+  <section id="bang-gia">
+    <div class="sec-head"><span class="no">05</span><div><h2>Bảng giá &amp; menu 시술</h2></div></div>
+    <div class="price-note">⚠️ Giá dưới đây là <b>mức tham khảo khu vực Gangnam</b> (đơn vị <b>만원 = 10.000 won Hàn</b>, ví dụ 15만원 ≈ 150.000 won). 쁨의원 nổi tiếng giá mềm &amp; hay có event rẻ hơn; trang giá chính thức của họ không truy cập trực tiếp được từ đây, nên hãy <b>xác nhận giá thật khi tư vấn / đặt lịch</b>.</div>
+    <div class="table-wrap">
+      <table class="price">
+        <thead><tr><th>시술 (dịch vụ)</th><th>Công dụng chính</th><th>Giá tham khảo</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="3">Gói bạn đã có</td></tr>
+          <tr class="have"><td class="nm">피코토닝<small>Pico Toning</small></td><td><span class="cdot brown"></span>Thâm nâu, đều màu, sáng da</td><td class="pr">~15만원~<span class="have-tag">Đã có</span></td></tr>
+          <tr class="have"><td class="nm">빛타민케어<small>Vitamin Care</small></td><td><span class="cdot glow"></span>Cấp ẩm, làm dịu, glow</td><td class="pr">kèm gói<span class="have-tag">Đã có</span></td></tr>
+          <tr class="have"><td class="nm">기본 마스크<small>Mặt nạ cơ bản</small></td><td><span class="cdot red"></span>Làm dịu, hạ nhiệt sau laser</td><td class="pr">kèm gói<span class="have-tag">Đã có</span></td></tr>
+
+          <tr class="grp"><td colspan="3">Trị thâm đỏ (PIE) — nên thêm</td></tr>
+          <tr><td class="nm">제네시스<small>Genesis toning</small></td><td><span class="cdot red"></span>Giảm đỏ, lỗ chân lông, glow</td><td class="pr">~15만원~</td></tr>
+          <tr><td class="nm">듀얼토닝<small>Pico + Genesis</small></td><td><span class="cdot brown"></span><span class="cdot red"></span>Nâu + đỏ cùng lúc</td><td class="pr">~25.9만원~</td></tr>
+          <tr><td class="nm">엑셀브이 / 브이빔<small>Excel V / V-beam</small></td><td><span class="cdot red"></span>Laser mạch máu, đỏ cứng đầu</td><td class="pr">~9–25만원</td></tr>
+
+          <tr class="grp"><td colspan="3">Sáng da &amp; sắc tố</td></tr>
+          <tr><td class="nm">레이저토닝<small>Laser toning</small></td><td><span class="cdot brown"></span>Sắc tố, đều màu (nhẹ hơn pico)</td><td class="pr">~15.9만원~</td></tr>
+
+          <tr class="grp"><td colspan="3">Căng bóng &amp; phục hồi</td></tr>
+          <tr><td class="nm">물광주사<small>Aqua glow booster</small></td><td><span class="cdot glow"></span>Cấp nước sâu, căng bóng tức thì</td><td class="pr">2cc ~9.9만원~</td></tr>
+          <tr><td class="nm">리쥬란 힐러<small>Rejuran Healer</small></td><td><span class="cdot glow"></span>Phục hồi, tái tạo, mịn da</td><td class="pr">~24만원~ (2cc)</td></tr>
+          <tr><td class="nm">쥬베룩<small>Juvelook</small></td><td><span class="cdot glow"></span>Collagen booster, căng khỏe</td><td class="pr">theo tư vấn</td></tr>
+
+          <tr class="grp"><td colspan="3">Làm sạch &amp; làm dịu</td></tr>
+          <tr><td class="nm">아쿠아필<small>Aqua Peel</small></td><td><span class="cdot glow"></span>Làm sạch lỗ chân lông, glow</td><td class="pr">~4–6.6만원</td></tr>
+          <tr><td class="nm">LDM 물방울리프팅<small>LDM</small></td><td><span class="cdot red"></span>Làm dịu, cấp ẩm, tái tạo</td><td class="pr">~3–7만원</td></tr>
+
+          <tr class="grp"><td colspan="3">Sẹo &amp; kết cấu — để sau chuyến đi (có downtime)</td></tr>
+          <tr><td class="nm">포텐자 / 실펌엑스<small>Potenza / Sylfirm X</small></td><td><span class="cdot red"></span><span class="cdot brown"></span>RF vi kim: sẹo rỗ, PIE sâu</td><td class="pr">~20–40만원+</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="disclaimer">쁨의원 còn nhiều dịch vụ khác (nâng cơ 슈링크/울쎄라, botox, filler, triệt lông, trị mụn…) nhưng bảng trên chỉ tập trung nhóm liên quan tới mục tiêu <b>đều màu + căng bóng</b> của bạn. Giá cuối cùng phụ thuộc vùng da, sản phẩm, có/không kèm 부가세 (VAT) và chương trình event.</p>
+  </section>
+
+  <!-- 6. Timeline -->
   <section id="lo-trinh">
-    <div class="sec-head"><span class="no">04</span><div><h2>Lộ trình 5 tuần</h2>
-      <p class="lead">Ba buổi tại phòng khám, cách nhau khoảng 2 tuần (đúng khoảng an toàn cho pico toning), buổi cuối cách ngày bay 1 tuần. Giữa các buổi là phần chăm tại nhà — mới là yếu tố quyết định.</p></div></div>
+    <div class="sec-head"><span class="no">06</span><div><h2>Lộ trình 5 tuần</h2>
+      <p class="lead">Ba buổi tại phòng khám, cách nhau khoảng 2 tuần (đúng khoảng an toàn cho pico toning), buổi cuối cách ngày bay 1 tuần. Mỗi buổi ghép thêm <b>제네시스</b> cho thâm đỏ, và một mũi <b>물광</b> cho căng bóng ở buổi cuối. Chip <span style="color:var(--calm); font-weight:600">xanh</span> là phần gợi ý thêm.</p></div></div>
 
     <div class="phases">
-      <div class="phase"><div class="no">01</div><div class="when">2 – 16/9</div><h3>Làm dịu</h3><p>Ổn định hàng rào da, dịu thâm đỏ, tập thói quen chống nắng. Buổi 1.</p></div>
-      <div class="phase"><div class="no">02</div><div class="when">17 – 30/9</div><h3>Đẩy sáng</h3><p>Thêm hoạt chất mờ thâm nâu vào tuần không laser. Buổi 2.</p></div>
-      <div class="phase"><div class="no">03</div><div class="when">1 – 8/10</div><h3>Bảo vệ &amp; căng bóng</h3><p>Buổi 3, tập trung cấp ẩm, glow và chống nắng cho chuyến đi.</p></div>
+      <div class="phase"><div class="no">01</div><div class="when">2 – 16/9</div><h3>Làm dịu</h3><p>Ổn định hàng rào da, dịu thâm đỏ, tập thói quen chống nắng. Buổi 1 (+ Genesis).</p></div>
+      <div class="phase"><div class="no">02</div><div class="when">17 – 30/9</div><h3>Đẩy sáng</h3><p>Thêm hoạt chất mờ thâm nâu vào tuần không laser. Buổi 2 (+ Genesis).</p></div>
+      <div class="phase"><div class="no">03</div><div class="when">1 – 8/10</div><h3>Căng bóng &amp; bảo vệ</h3><p>Buổi 3 + 물광, tập trung glow, cấp ẩm &amp; chống nắng cho chuyến đi.</p></div>
     </div>
 
     <div class="timeline">
@@ -368,10 +515,10 @@
 
       <div class="node visit">
         <div class="n-date">Buổi 1 · Thứ 6, 4/9 <span style="color:var(--muted)">(càng sớm càng tốt)</span></div>
-        <div class="n-title">Khởi động — làm dịu &amp; đều màu</div>
+        <div class="n-title">Khởi động — làm dịu, đều màu &amp; giảm đỏ</div>
         <div class="visit-card" data-visit="1">
-          <div class="combo"><span class="chip">피코토닝</span><span class="chip">빛타민케어</span><span class="chip">기본 마스크</span></div>
-          <p class="visit-note"><b>Thứ tự trong buổi:</b> laser pico trước → vitamin care làm dịu &amp; cấp ẩm → mặt nạ đóng lại. Báo bác sĩ bạn có thâm đỏ nhạy cảm để bắn <b>nhẹ tay</b>.</p>
+          <div class="combo"><span class="chip">피코토닝</span><span class="chip add">제네시스</span><span class="chip">빛타민케어</span><span class="chip">기본 마스크</span></div>
+          <p class="visit-note"><b>Thứ tự:</b> (아쿠아필 làm sạch nếu muốn) → pico + Genesis → vitamin care làm dịu → mặt nạ đóng lại. Báo bác sĩ bạn có thâm đỏ nhạy cảm để bắn <b>nhẹ tay</b>.</p>
           <button class="toggle" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lbl">Đánh dấu đã hoàn thành</span></button>
         </div>
       </div>
@@ -383,10 +530,10 @@
 
       <div class="node visit">
         <div class="n-date">Buổi 2 · Thứ 6, 18/9</div>
-        <div class="n-title">Đẩy sáng thâm nâu</div>
+        <div class="n-title">Đẩy sáng thâm nâu + tiếp tục giảm đỏ</div>
         <div class="visit-card" data-visit="2">
-          <div class="combo"><span class="chip">피코토닝</span><span class="chip">빛타민케어</span><span class="chip">기본 마스크</span></div>
-          <p class="visit-note">Cùng combo. Nếu da đã quen, bác sĩ có thể tăng nhẹ mức năng lượng. Nhắc lại: ngưng hoạt chất mạnh 2–3 ngày <b>trước</b> buổi này.</p>
+          <div class="combo"><span class="chip">피코토닝</span><span class="chip add">제네시스</span><span class="chip">빛타민케어</span><span class="chip">기본 마스크</span></div>
+          <p class="visit-note">Cùng combo. Nếu thâm <b>đỏ</b> còn nhiều, hỏi bác sĩ thêm <b>엑셀브이/브이빔</b> vào buổi này. Ngưng hoạt chất mạnh 2–3 ngày <b>trước</b> buổi.</p>
           <button class="toggle" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lbl">Đánh dấu đã hoàn thành</span></button>
         </div>
       </div>
@@ -398,10 +545,10 @@
 
       <div class="node visit">
         <div class="n-date">Buổi 3 · Thứ 5, 1/10 <span style="color:var(--muted)">(cách ngày bay 1 tuần)</span></div>
-        <div class="n-title">Buổi laser cuối trước chuyến đi</div>
+        <div class="n-title">Buổi cuối — căng bóng trước chuyến đi</div>
         <div class="visit-card" data-visit="3">
-          <div class="combo"><span class="chip">피코토닝</span><span class="chip">빛타민케어</span><span class="chip">기본 마스크</span></div>
-          <p class="visit-note">Bắn <b>nhẹ nhàng</b>, ưu tiên da phẳng đẹp &amp; ẩm hơn là ép sắc tố. Khoảng 7 ngày là đủ để mọi vết đỏ/sậm tạm thời lắng xuống trước khi bay.</p>
+          <div class="combo"><span class="chip">피코토닝</span><span class="chip add">제네시스</span><span class="chip add">물광주사</span><span class="chip">빛타민케어</span><span class="chip">기본 마스크</span></div>
+          <p class="visit-note">Bắn <b>nhẹ nhàng</b>, thêm mũi <b>물광</b> cho da căng mọng. 7 ngày là đủ để mọi vết đỏ/sậm tạm thời &amp; vết kim lắng xuống trước khi bay.</p>
           <button class="toggle" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lbl">Đánh dấu đã hoàn thành</span></button>
         </div>
       </div>
@@ -409,20 +556,20 @@
       <div class="node home">
         <div class="n-date">6 – 7/10 · tại nhà <span class="opt">Tùy chọn</span></div>
         <div class="n-title" style="font-size:.98rem">“Glow day” trước khi bay</div>
-        <p class="home-note">Nếu muốn, đặt thêm một buổi <b>chỉ 빛타민케어 + 기본 마스크</b> (không laser) 1–2 ngày trước chuyến đi để cấp ẩm và căng bóng — hoàn toàn không rủi ro sắc tố. Hoặc thay bằng mặt nạ dịu &amp; cấp ẩm tại nhà.</p>
+        <p class="home-note">Nếu muốn tăng thêm độ căng bóng, đặt một buổi <b>chỉ 빛타민케어 + LDM + 기본 마스크</b> (không laser, không kim) 1–2 ngày trước chuyến đi. Hoặc thay bằng mặt nạ dịu &amp; cấp ẩm tại nhà.</p>
       </div>
 
       <div class="node trip">
         <div class="n-date">Thứ 5 · 8/10/2026</div>
         <div class="n-title">✈️ Bay đi Thái Lan</div>
-        <p class="home-note">Da sáng, đều màu và đủ ẩm. Việc quan trọng nhất mang theo: <b>kem chống nắng SPF50+</b> và thói quen thoa lại — nắng nhiệt đới rất mạnh với làn da vừa laser.</p>
+        <p class="home-note">Da sáng, đều màu, căng bóng và đủ ẩm. Việc quan trọng nhất mang theo: <b>kem chống nắng SPF50+</b> và thói quen thoa lại — nắng nhiệt đới rất mạnh với làn da vừa laser.</p>
       </div>
     </div>
   </section>
 
-  <!-- 5. Home routine -->
+  <!-- 7. Home routine -->
   <section id="cham-tai-nha">
-    <div class="sec-head"><span class="no">05</span><div><h2>Chăm da tại nhà mỗi ngày</h2>
+    <div class="sec-head"><span class="no">07</span><div><h2>Chăm da tại nhà mỗi ngày</h2>
       <p class="lead">Phòng khám chiếm ~10% kết quả; 90% còn lại là những gì bạn làm mỗi sáng và tối. Giữ đơn giản và đều đặn.</p></div></div>
     <div class="routine">
       <div class="rcard am">
@@ -462,9 +609,9 @@
     </div>
   </section>
 
-  <!-- 6. Thailand sun -->
+  <!-- 8. Thailand sun -->
   <section id="di-thai">
-    <div class="sec-head"><span class="no">06</span><div><h2>Chuẩn bị cho nắng Thái Lan</h2>
+    <div class="sec-head"><span class="no">08</span><div><h2>Chuẩn bị cho nắng Thái Lan</h2>
       <p class="lead">Đây là mắt xích dễ làm hỏng mọi công sức nhất. Da vừa laser + nắng nhiệt đới = thâm nâu rất dễ quay lại nếu không che chắn kỹ.</p></div></div>
     <div class="sun-grid">
       <div class="do">
@@ -501,15 +648,15 @@
     </div>
   </section>
 
-  <!-- 7. Expectations -->
+  <!-- 9. Expectations -->
   <section id="ky-vong">
-    <div class="sec-head"><span class="no">07</span><div><h2>Kỳ vọng thực tế</h2></div></div>
+    <div class="sec-head"><span class="no">09</span><div><h2>Kỳ vọng thực tế</h2></div></div>
     <div class="expect">
-      <p><b>Trong 5 tuần / 3 buổi</b>, bạn sẽ thấy: da sáng &amp; đều màu hơn, thâm nâu mờ dần, thâm đỏ dịu lại, da căng bóng khỏe hơn — đủ để tự tin trong chuyến đi.</p>
-      <p><b>Thâm nâu (PIH)</b> thường cần nhiều buổi pico hơn — khoảng <b>8–10+ buổi</b>, cách nhau 1–2 tuần — để mờ ~60–70%. Đừng kỳ vọng sạch hoàn toàn trong 5 tuần; hãy tiếp tục lộ trình sau khi về.</p>
-      <p><b>Thâm đỏ (PIE)</b> cải thiện dần nhờ làm dịu + chống nắng + thời gian, không nên nôn nóng ép bằng laser mạnh.</p>
+      <p><b>Trong 5 tuần / 3 buổi</b> (pico + Genesis + booster), bạn sẽ thấy: da sáng &amp; đều màu hơn, thâm nâu mờ dần, thâm đỏ dịu lại, da <b>căng bóng khỏe</b> hơn hẳn — đủ để tự tin trong chuyến đi.</p>
+      <p><b>Thâm nâu (PIH)</b> thường cần nhiều buổi pico hơn — khoảng <b>8–10+ buổi</b>, cách nhau 1–2 tuần — để mờ ~60–70%. <b>Thâm đỏ (PIE)</b> và <b>Genesis</b> cũng cần 3+ buổi mới rõ. Đừng kỳ vọng sạch hoàn toàn trong 5 tuần; hãy tiếp tục lộ trình sau khi về.</p>
+      <p><b>Căng bóng</b> là thứ lên nhanh nhất: 물광/리쥬란 + cấp ẩm tốt cho hiệu ứng thấy ngay trong vài ngày — nên dồn vào sát ngày bay.</p>
     </div>
-    <p class="disclaimer">Đây là gợi ý tham khảo dựa trên thông tin công khai về 쁨의원 và nguyên tắc chăm da sau trị liệu. Bác sĩ tại phòng khám là người trực tiếp khám và quyết định mức năng lượng, số buổi và khoảng cách phù hợp với da bạn — hãy ưu tiên tư vấn của họ, và báo ngay nếu da có phản ứng bất thường.</p>
+    <p class="disclaimer">Đây là gợi ý tham khảo dựa trên thông tin công khai về 쁨의원 và nguyên tắc chăm da sau trị liệu; giá là mức tham khảo khu vực Gangnam, không phải báo giá chính thức của 쁨의원. Bác sĩ tại phòng khám là người trực tiếp khám và quyết định dịch vụ, mức năng lượng, số buổi và khoảng cách phù hợp với da bạn — hãy ưu tiên tư vấn của họ, và báo ngay nếu da có phản ứng bất thường.</p>
   </section>
 
 </main>
