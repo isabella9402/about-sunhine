@@ -1,9 +1,565 @@
-<html>
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lộ trình dưỡng da đi Thái</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,420&family=Be+Vietnam+Pro:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#FAF5F1; --surface:#FFFFFF; --surface-2:#FBF3EF;
+    --ink:#2C2529; --ink-soft:#5B5054; --muted:#8C8085;
+    --line:#ECE0DA; --line-strong:#DFD0C9;
+    --accent:#A85A6B; --accent-ink:#8B4557; --accent-soft:#F5E5E7;
+    --pie:#C05A55; --pie-soft:#F8E2DE;
+    --pih:#A5744A; --pih-soft:#F1E6D5;
+    --sun:#C0842F; --sun-soft:#F6E8CF;
+    --calm:#6C8C69; --calm-soft:#E6EEE1;
+    --shadow:rgba(70,45,50,.09);
+    --radius:16px;
+    --font-display:'Fraunces',Georgia,'Times New Roman',serif;
+    --font-body:'Be Vietnam Pro',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+    --font-ko:'Noto Sans KR','Be Vietnam Pro',system-ui,sans-serif;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:not([data-theme="light"]){
+      --bg:#1F191C; --surface:#2A2327; --surface-2:#312A2E;
+      --ink:#F3EAE7; --ink-soft:#CBBEC2; --muted:#9C8E93;
+      --line:#3A3135; --line-strong:#493D42;
+      --accent:#DB8B98; --accent-ink:#EBA7B1; --accent-soft:#3D2A2F;
+      --pie:#E28C84; --pie-soft:#3D2926;
+      --pih:#D4A470; --pih-soft:#382D22;
+      --sun:#E1AA5C; --sun-soft:#372B1B;
+      --calm:#95B78C; --calm-soft:#25301F;
+      --shadow:rgba(0,0,0,.45);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#1F191C; --surface:#2A2327; --surface-2:#312A2E;
+    --ink:#F3EAE7; --ink-soft:#CBBEC2; --muted:#9C8E93;
+    --line:#3A3135; --line-strong:#493D42;
+    --accent:#DB8B98; --accent-ink:#EBA7B1; --accent-soft:#3D2A2F;
+    --pie:#E28C84; --pie-soft:#3D2926;
+    --pih:#D4A470; --pih-soft:#382D22;
+    --sun:#E1AA5C; --sun-soft:#372B1B;
+    --calm:#95B78C; --calm-soft:#25301F;
+    --shadow:rgba(0,0,0,.45);
+  }
 
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:var(--font-body); font-weight:400; font-size:16px;
+    line-height:1.62; -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{max-width:760px; margin:0 auto; padding:0 20px}
+  .ko{font-family:var(--font-ko)}
+
+  /* ---------- Type ---------- */
+  h1,h2,h3{font-family:var(--font-display); font-weight:500; line-height:1.12; text-wrap:balance; margin:0}
+  h2{font-size:1.62rem; letter-spacing:-.01em}
+  h3{font-size:1.12rem; font-weight:600; letter-spacing:-.005em}
+  p{margin:0}
+  a{color:var(--accent-ink); text-decoration-thickness:1px; text-underline-offset:2px}
+  .eyebrow{font-size:.74rem; font-weight:600; letter-spacing:.16em; text-transform:uppercase; color:var(--accent-ink)}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative; overflow:hidden; padding:64px 0 40px}
+  .hero-glow{position:absolute; z-index:0; top:-140px; right:-120px; width:420px; height:420px;
+    background:radial-gradient(closest-side, var(--accent-soft), transparent 72%);
+    opacity:.85; pointer-events:none}
+  .hero .wrap{position:relative; z-index:1}
+  .hero h1{font-size:clamp(2.3rem,7.5vw,3.5rem); font-weight:500; letter-spacing:-.02em; margin:14px 0 0}
+  .hero .lede{font-family:var(--font-display); font-style:italic; font-size:clamp(1.1rem,3.6vw,1.32rem);
+    color:var(--ink-soft); margin-top:16px; max-width:34ch}
+  .meta-row{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+  .pill{display:inline-flex; align-items:baseline; gap:7px; padding:8px 13px; border-radius:999px;
+    background:var(--surface); border:1px solid var(--line); font-size:.86rem; box-shadow:0 1px 2px var(--shadow)}
+  .pill b{font-weight:600}
+  .pill .k{font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+  #countdown{color:var(--accent-ink); font-weight:600; font-variant-numeric:tabular-nums}
+
+  /* ---------- Section rhythm ---------- */
+  section{padding:34px 0}
+  section + section{border-top:1px solid var(--line)}
+  .sec-head{display:flex; align-items:baseline; gap:12px; margin-bottom:20px}
+  .sec-head .no{font-family:var(--font-display); font-size:.95rem; color:var(--accent-ink); font-weight:600;
+    font-variant-numeric:tabular-nums; padding-top:2px}
+  .lead{color:var(--ink-soft); max-width:60ch; margin-top:6px}
+
+  /* ---------- Concern chips ---------- */
+  .concerns{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:4px}
+  @media(max-width:520px){.concerns{grid-template-columns:1fr}}
+  .concern{border:1px solid var(--line); border-radius:var(--radius); padding:16px 16px 15px; background:var(--surface)}
+  .concern .tag{display:inline-flex; align-items:center; gap:7px; font-weight:600; font-size:.9rem}
+  .dot{width:11px; height:11px; border-radius:50%; flex:0 0 auto}
+  .dot.red{background:var(--pie)} .dot.brown{background:var(--pih)}
+  .concern.red{background:var(--pie-soft); border-color:transparent}
+  .concern.brown{background:var(--pih-soft); border-color:transparent}
+  .concern p{font-size:.9rem; color:var(--ink-soft); margin-top:8px}
+  .concern .sci{font-size:.74rem; letter-spacing:.04em; text-transform:uppercase; color:var(--muted); font-weight:600}
+
+  /* ---------- Clinic card ---------- */
+  .clinic{background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px; box-shadow:0 4px 20px var(--shadow)}
+  .clinic h3 .ko{font-weight:700}
+  .clinic .addr{color:var(--ink-soft); margin-top:6px; font-size:.95rem}
+  .info-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px 18px; margin-top:18px}
+  @media(max-width:520px){.info-grid{grid-template-columns:1fr}}
+  .info-grid .k{font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-bottom:3px}
+  .hours{margin-top:2px}
+  .hours .row{display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px dashed var(--line); font-size:.92rem}
+  .hours .row:last-child{border-bottom:0}
+  .hours .row b{font-variant-numeric:tabular-nums; font-weight:600}
+  .hours .now{color:var(--accent-ink)}
+  .links{display:flex; flex-wrap:wrap; gap:10px; margin-top:18px}
+  .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 15px; border-radius:999px;
+    font-size:.88rem; font-weight:600; text-decoration:none; border:1px solid var(--line-strong); color:var(--ink); background:var(--surface-2)}
+  .btn.solid{background:var(--accent); border-color:var(--accent); color:#fff}
+  .btn:focus-visible, .toggle:focus-visible, details:focus-within > summary{outline:2px solid var(--accent); outline-offset:2px}
+
+  details.phrases{margin-top:18px; border-top:1px solid var(--line); padding-top:6px}
+  details.phrases summary{cursor:pointer; list-style:none; padding:10px 0; font-weight:600; font-size:.92rem;
+    display:flex; align-items:center; justify-content:space-between; color:var(--accent-ink)}
+  details.phrases summary::-webkit-details-marker{display:none}
+  details.phrases summary::after{content:"＋"; font-family:var(--font-display); color:var(--muted)}
+  details.phrases[open] summary::after{content:"－"}
+  .phrase{padding:12px 0; border-top:1px dashed var(--line)}
+  .phrase .vi{font-size:.82rem; color:var(--muted); font-weight:600}
+  .phrase .kr{font-family:var(--font-ko); font-size:1rem; font-weight:500; margin-top:4px}
+
+  /* ---------- Treatments ---------- */
+  .treat{display:flex; flex-direction:column; gap:14px}
+  .tcard{position:relative; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius);
+    padding:18px 18px 18px 20px; display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start}
+  .tcard .rail{width:4px; align-self:stretch; border-radius:4px; background:var(--accent)}
+  .tcard.for-brown .rail{background:var(--pih)} .tcard.for-red .rail{background:var(--pie)} .tcard.for-glow .rail{background:var(--calm)}
+  .tcard .name{font-family:var(--font-ko); font-weight:700; font-size:1.08rem}
+  .tcard .rom{font-size:.78rem; color:var(--muted); font-weight:500; letter-spacing:.02em}
+  .tcard p{font-size:.92rem; color:var(--ink-soft); margin-top:8px}
+  .targets{display:inline-flex; gap:6px; margin-top:11px; flex-wrap:wrap}
+  .target{font-size:.72rem; font-weight:600; padding:4px 9px; border-radius:999px; letter-spacing:.02em}
+  .target.red{background:var(--pie-soft); color:var(--pie)}
+  .target.brown{background:var(--pih-soft); color:var(--pih)}
+  .target.glow{background:var(--calm-soft); color:var(--calm)}
+
+  /* ---------- Phases ---------- */
+  .phases{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:30px}
+  @media(max-width:640px){.phases{grid-template-columns:1fr}}
+  .phase{border:1px solid var(--line); border-radius:14px; padding:15px; background:var(--surface-2)}
+  .phase .no{font-family:var(--font-display); font-size:1.5rem; color:var(--accent); line-height:1}
+  .phase .when{font-size:.74rem; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); font-weight:600; margin-top:8px}
+  .phase h3{font-size:1rem; margin-top:3px}
+  .phase p{font-size:.85rem; color:var(--ink-soft); margin-top:6px}
+
+  /* ---------- Timeline ---------- */
+  .timeline{position:relative; margin-left:6px; padding-left:30px}
+  .timeline::before{content:""; position:absolute; left:6px; top:8px; bottom:14px; width:2px;
+    background:linear-gradient(var(--line-strong), var(--line-strong)); border-radius:2px}
+  .node{position:relative; padding-bottom:24px}
+  .node:last-child{padding-bottom:0}
+  .node::before{content:""; position:absolute; left:-30px; top:5px; width:14px; height:14px; border-radius:50%;
+    background:var(--surface); border:2px solid var(--line-strong)}
+  .node.visit::before{border-color:var(--accent); background:var(--accent)}
+  .node.trip::before{border-color:var(--sun); background:var(--sun); box-shadow:0 0 0 4px var(--sun-soft)}
+  .node.start::before{border-color:var(--calm); background:var(--calm)}
+  .node.home::before{width:9px; height:9px; left:-27px; top:8px; background:var(--surface); border-color:var(--line-strong)}
+  .n-date{font-size:.76rem; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--muted)}
+  .n-title{font-family:var(--font-display); font-weight:600; font-size:1.06rem; margin-top:1px}
+  .visit-card{background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:15px 16px; margin-top:9px; box-shadow:0 2px 10px var(--shadow)}
+  .visit-card.done{opacity:.62}
+  .combo{display:flex; flex-wrap:wrap; gap:7px; margin:10px 0 4px}
+  .chip{font-family:var(--font-ko); font-size:.8rem; font-weight:500; padding:4px 10px; border-radius:8px; background:var(--accent-soft); color:var(--accent-ink)}
+  .visit-note{font-size:.85rem; color:var(--ink-soft); margin-top:8px}
+  .visit-note b{color:var(--ink); font-weight:600}
+  .toggle{margin-top:12px; display:inline-flex; align-items:center; gap:9px; cursor:pointer; border:1px solid var(--line-strong);
+    background:var(--surface-2); color:var(--ink); font-family:var(--font-body); font-size:.82rem; font-weight:600;
+    padding:7px 12px; border-radius:999px}
+  .toggle .box{width:16px; height:16px; border-radius:5px; border:2px solid var(--muted); display:inline-flex; align-items:center; justify-content:center; font-size:.7rem; color:#fff}
+  .visit-card.done .toggle .box{background:var(--calm); border-color:var(--calm)}
+  .visit-card.done .toggle .box::after{content:"✓"}
+  .home-note{font-size:.88rem; color:var(--ink-soft); margin-top:7px; max-width:56ch}
+  .opt{font-size:.7rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--calm);
+    background:var(--calm-soft); padding:2px 8px; border-radius:6px; margin-left:8px; vertical-align:middle}
+
+  /* ---------- Routine ---------- */
+  .routine{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media(max-width:640px){.routine{grid-template-columns:1fr}}
+  .rcard{border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; background:var(--surface)}
+  .rcard .top{padding:14px 18px; display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:600; font-size:1.1rem}
+  .rcard.am .top{background:var(--sun-soft); color:var(--sun)}
+  .rcard.pm .top{background:var(--accent-soft); color:var(--accent-ink)}
+  ol.steps{list-style:none; counter-reset:s; margin:0; padding:8px 18px 18px}
+  ol.steps li{counter-increment:s; position:relative; padding:11px 0 11px 34px; border-bottom:1px solid var(--line); font-size:.92rem}
+  ol.steps li:last-child{border-bottom:0}
+  ol.steps li::before{content:counter(s); position:absolute; left:0; top:11px; width:22px; height:22px; border-radius:50%;
+    background:var(--surface-2); border:1px solid var(--line-strong); color:var(--ink-soft); font-family:var(--font-body);
+    font-size:.72rem; font-weight:700; display:flex; align-items:center; justify-content:center; font-variant-numeric:tabular-nums}
+  ol.steps li b{font-weight:600}
+  ol.steps li.star::before{content:"★"; background:var(--sun); border-color:var(--sun); color:#fff; font-size:.7rem}
+  ol.steps small{display:block; color:var(--muted); font-size:.8rem; margin-top:1px}
+
+  .callout{border-radius:var(--radius); padding:18px 20px; margin-top:20px; border:1px solid var(--line)}
+  .callout.gold{background:var(--accent-soft); border-color:transparent}
+  .callout.laser{background:var(--pie-soft); border-color:transparent; margin-top:14px}
+  .callout h3{font-size:1.02rem; margin-bottom:6px}
+  .callout h3 .ic{color:var(--accent-ink)}
+  .callout ul{margin:8px 0 0; padding-left:18px}
+  .callout li{margin:5px 0; font-size:.9rem; color:var(--ink-soft)}
+  .callout li b{color:var(--ink); font-weight:600}
+
+  /* ---------- Sun / Thailand ---------- */
+  .sun-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+  @media(max-width:640px){.sun-grid{grid-template-columns:1fr}}
+  .do,.dont{border-radius:var(--radius); padding:17px 18px; border:1px solid var(--line)}
+  .do{background:var(--calm-soft); border-color:transparent}
+  .dont{background:var(--pie-soft); border-color:transparent}
+  .do .h,.dont .h{font-weight:700; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; margin-bottom:9px}
+  .do .h{color:var(--calm)} .dont .h{color:var(--pie)}
+  .do ul,.dont ul{margin:0; padding-left:17px}
+  .do li,.dont li{margin:6px 0; font-size:.9rem; color:var(--ink-soft)}
+  .pack{margin-top:16px; background:var(--sun-soft); border-radius:var(--radius); padding:17px 20px}
+  .pack .h{font-weight:700; font-size:.8rem; letter-spacing:.08em; text-transform:uppercase; color:var(--sun); margin-bottom:10px}
+  .pack .items{display:flex; flex-wrap:wrap; gap:8px}
+  .pack .item{background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:6px 12px; font-size:.84rem; font-weight:500}
+
+  /* ---------- Expectations / footer ---------- */
+  .expect{background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--accent); border-radius:12px; padding:18px 20px}
+  .expect p{color:var(--ink-soft); font-size:.94rem}
+  .expect p + p{margin-top:10px}
+  .expect b{color:var(--ink)}
+  .disclaimer{font-size:.82rem; color:var(--muted); margin-top:20px; max-width:64ch; line-height:1.55}
+  footer{padding:30px 0 46px; text-align:center; color:var(--muted); font-size:.82rem}
+  footer .sig{font-family:var(--font-display); font-style:italic; font-size:1.05rem; color:var(--ink-soft)}
+
+  @media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+</head>
 <body>
-  <h1>YOUR NAME</h1>
-  <p>Welcome to my website!</p>
-  <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" />
-</body>
 
+<header class="hero">
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="eyebrow">Lộ trình dưỡng da · 2 tuần/lần · 쁨의원</p>
+    <h1>Làn da khỏe đẹp<br>cho chuyến Thái Lan</h1>
+    <p class="lede">Năm tuần chăm da có chủ đích — làm dịu, đẩy sáng, rồi bảo vệ — để tự tin trước ngày 8/10.</p>
+    <div class="meta-row">
+      <span class="pill"><span class="k">Ngày bay</span><b>Thứ Năm, 8/10/2026</b></span>
+      <span class="pill"><span class="k">Đếm ngược</span><b id="countdown">8/10/2026</b></span>
+      <span class="pill"><span class="k">Phác đồ</span><b>3 buổi tại phòng khám</b></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <!-- 1. Goal & concerns -->
+  <section id="muc-tieu">
+    <div class="sec-head"><span class="no">01</span><div><h2>Mục tiêu &amp; tình trạng da</h2>
+      <p class="lead">Da đang có hai loại vết thâm khác nhau do mụn cũ để lại — chúng cần cách xử lý khác nhau, nên biết rõ tên gọi sẽ giúp bạn trao đổi với bác sĩ dễ hơn.</p></div></div>
+    <div class="concerns">
+      <div class="concern red">
+        <span class="tag"><span class="dot red"></span>Thâm đỏ</span>
+        <p class="sci" style="margin-top:8px">PIE · Hồng ban sau viêm</p>
+        <p>Vết hồng/đỏ do mạch máu li ti giãn sau mụn. Ưu tiên <b>làm dịu, giảm viêm, chống nắng</b> — không chà xát mạnh.</p>
+      </div>
+      <div class="concern brown">
+        <span class="tag"><span class="dot brown"></span>Thâm nâu</span>
+        <p class="sci" style="margin-top:8px">PIH · Tăng sắc tố sau viêm</p>
+        <p>Vết nâu/xám do melanin lắng lại. Đây là phần <b>피코토닝</b> xử lý tốt nhất, cộng với dưỡng sáng &amp; chống nắng thật kỹ.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2. Clinic -->
+  <section id="phong-kham">
+    <div class="sec-head"><span class="no">02</span><div><h2>Trụ sở 쁨의원 Gangnam</h2>
+      <p class="lead">Cơ sở chính (본원) nằm ngay lối ra ga Sinnonhyeon — mở cửa tới 21h các ngày trong tuần nên dễ xếp lịch sau giờ làm.</p></div></div>
+    <div class="clinic">
+      <h3><span class="ko">예쁨주의쁨의원</span> · Gangnam 본점</h3>
+      <p class="addr">서울특별시 강남구 강남대로 470, 808타워 (역삼동) — khám tại tầng 13–14</p>
+      <div class="info-grid">
+        <div>
+          <div class="k">Ga tàu điện</div>
+          <div><b>신논현역 (Sinnonhyeon)</b> · Tuyến 9<br><span style="color:var(--muted); font-size:.86rem">cách lối ra ~21m, gần 강남역</span></div>
+        </div>
+        <div>
+          <div class="k">Điện thoại đặt lịch</div>
+          <div><a href="tel:1666-1177"><b>1666-1177</b></a></div>
+        </div>
+        <div style="grid-column:1/-1">
+          <div class="k">Giờ làm việc</div>
+          <div class="hours">
+            <div class="row"><span>Thứ 2 – Thứ 6 <span style="color:var(--muted)">(có khám tối)</span></span><b>10:30 – 21:00</b></div>
+            <div class="row"><span>Thứ 7</span><b>10:30 – 17:00</b></div>
+            <div class="row"><span>Chủ nhật &amp; ngày lễ</span><b>11:00 – 17:00</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="links">
+        <a class="btn solid" href="https://map.naver.com/p/search/예쁨주의쁨의원 강남본점" target="_blank" rel="noopener">Bản đồ Naver ↗</a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=서울 강남구 강남대로 470 808타워" target="_blank" rel="noopener">Google Maps ↗</a>
+        <a class="btn" href="tel:1666-1177">Gọi 1666-1177</a>
+      </div>
+
+      <details class="phrases">
+        <summary>Câu tiếng Hàn để đặt lịch &amp; trao đổi</summary>
+        <div class="phrase"><div class="vi">Đặt trọn gói bạn đã mua</div><div class="kr">피코토닝, 빛타민케어, 기본 마스크 예약하고 싶어요.</div></div>
+        <div class="phrase"><div class="vi">Xin lịch 2 tuần/lần, 3 buổi trước 8/10</div><div class="kr">2주에 한 번씩, 10월 8일 전까지 3번 받을 수 있을까요?</div></div>
+        <div class="phrase"><div class="vi">Mô tả tình trạng da</div><div class="kr">여드름 자국이 있어요 — 붉은 자국이랑 갈색 색소침착이요.</div></div>
+        <div class="phrase"><div class="vi">Xin làm dịu &amp; đắp mặt nạ sau laser</div><div class="kr">레이저 후에 진정 관리랑 마스크 부탁드려요.</div></div>
+        <div class="phrase"><div class="vi">Sắp đi du lịch nắng nhiều, xin lời khuyên</div><div class="kr">곧 태국 여행 가요. 시술 후 햇빛 관리 조언 부탁드려요.</div></div>
+      </details>
+    </div>
+  </section>
+
+  <!-- 3. Treatments -->
+  <section id="goi-da-mua">
+    <div class="sec-head"><span class="no">03</span><div><h2>Bạn đã mua gì — trị được gì</h2>
+      <p class="lead">Ba dịch vụ này bổ trợ nhau: một cái xử lý sắc tố, một cái nuôi da khỏe &amp; làm dịu, một cái “hạ nhiệt” đóng lại buổi trị liệu. Nên làm theo đúng thứ tự này trong mỗi buổi.</p></div></div>
+    <div class="treat">
+      <div class="tcard for-brown">
+        <div class="rail" aria-hidden="true"></div>
+        <div>
+          <div class="name">피코토닝 <span class="rom">Pico Toning</span></div>
+          <p>Laser picô (tia siêu ngắn, một-phần-nghìn-tỷ giây) bắn vỡ chọn lọc các hạt sắc tố bất thường ở cả lớp nông và sâu. Đây là “nhân vật chính” cho <b>thâm nâu</b> và làm đều màu da.</p>
+          <div class="targets"><span class="target brown">→ Thâm nâu (PIH)</span><span class="target glow">→ Đều màu, sáng da</span></div>
+        </div>
+      </div>
+      <div class="tcard for-glow">
+        <div class="rail" aria-hidden="true"></div>
+        <div>
+          <div class="name">빛타민케어 <span class="rom">Vitamin (Light) Care</span></div>
+          <p>Năng lượng sóng siêu âm + tinh chất skin-booster giàu vitamin: kích thích collagen, cân bằng độ ẩm, làm dịu da mệt/yếu. Ấm nhẹ, không gây kích ứng — hỗ trợ dịu <b>thâm đỏ</b> và cho da căng khỏe.</p>
+          <div class="targets"><span class="target red">→ Dịu thâm đỏ (PIE)</span><span class="target glow">→ Cấp ẩm, căng bóng</span></div>
+        </div>
+      </div>
+      <div class="tcard for-red">
+        <div class="rail" aria-hidden="true"></div>
+        <div>
+          <div class="name">기본 마스크 <span class="rom">Mặt nạ làm dịu cơ bản</span></div>
+          <p>Bước đắp mặt nạ làm dịu &amp; cấp ẩm ngay sau trị liệu: hạ nhiệt, giảm đỏ và sưng nhẹ, khóa ẩm. Luôn là bước <b>cuối cùng</b> để đóng lại buổi làm.</p>
+          <div class="targets"><span class="target red">→ Giảm đỏ, hạ nhiệt</span><span class="target glow">→ Phục hồi hàng rào da</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Timeline -->
+  <section id="lo-trinh">
+    <div class="sec-head"><span class="no">04</span><div><h2>Lộ trình 5 tuần</h2>
+      <p class="lead">Ba buổi tại phòng khám, cách nhau khoảng 2 tuần (đúng khoảng an toàn cho pico toning), buổi cuối cách ngày bay 1 tuần. Giữa các buổi là phần chăm tại nhà — mới là yếu tố quyết định.</p></div></div>
+
+    <div class="phases">
+      <div class="phase"><div class="no">01</div><div class="when">2 – 16/9</div><h3>Làm dịu</h3><p>Ổn định hàng rào da, dịu thâm đỏ, tập thói quen chống nắng. Buổi 1.</p></div>
+      <div class="phase"><div class="no">02</div><div class="when">17 – 30/9</div><h3>Đẩy sáng</h3><p>Thêm hoạt chất mờ thâm nâu vào tuần không laser. Buổi 2.</p></div>
+      <div class="phase"><div class="no">03</div><div class="when">1 – 8/10</div><h3>Bảo vệ &amp; căng bóng</h3><p>Buổi 3, tập trung cấp ẩm, glow và chống nắng cho chuyến đi.</p></div>
+    </div>
+
+    <div class="timeline">
+      <div class="node start">
+        <div class="n-date">Thứ 4 · 2/9 — Hôm nay</div>
+        <div class="n-title">Bắt đầu chuẩn bị da</div>
+        <p class="home-note">Trước buổi đầu tiên: làm dịu, dưỡng ẩm phục hồi và <b>bôi kem chống nắng mỗi sáng</b>. Tạm ngưng hoạt chất mạnh 2–3 ngày trước khi bắn laser.</p>
+      </div>
+
+      <div class="node visit">
+        <div class="n-date">Buổi 1 · Thứ 6, 4/9 <span style="color:var(--muted)">(càng sớm càng tốt)</span></div>
+        <div class="n-title">Khởi động — làm dịu &amp; đều màu</div>
+        <div class="visit-card" data-visit="1">
+          <div class="combo"><span class="chip">피코토닝</span><span class="chip">빛타민케어</span><span class="chip">기본 마스크</span></div>
+          <p class="visit-note"><b>Thứ tự trong buổi:</b> laser pico trước → vitamin care làm dịu &amp; cấp ẩm → mặt nạ đóng lại. Báo bác sĩ bạn có thâm đỏ nhạy cảm để bắn <b>nhẹ tay</b>.</p>
+          <button class="toggle" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lbl">Đánh dấu đã hoàn thành</span></button>
+        </div>
+      </div>
+
+      <div class="node home">
+        <div class="n-date">5 – 17/9 · tại nhà (2 tuần)</div>
+        <p class="home-note">Tuần 1 sau laser: chỉ làm dịu + dưỡng ẩm + chống nắng, <b>không</b> hoạt chất mạnh, không xông hơi/hồ bơi. Tuần 2: da ổn định, có thể quay lại niacinamide buổi tối.</p>
+      </div>
+
+      <div class="node visit">
+        <div class="n-date">Buổi 2 · Thứ 6, 18/9</div>
+        <div class="n-title">Đẩy sáng thâm nâu</div>
+        <div class="visit-card" data-visit="2">
+          <div class="combo"><span class="chip">피코토닝</span><span class="chip">빛타민케어</span><span class="chip">기본 마스크</span></div>
+          <p class="visit-note">Cùng combo. Nếu da đã quen, bác sĩ có thể tăng nhẹ mức năng lượng. Nhắc lại: ngưng hoạt chất mạnh 2–3 ngày <b>trước</b> buổi này.</p>
+          <button class="toggle" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lbl">Đánh dấu đã hoàn thành</span></button>
+        </div>
+      </div>
+
+      <div class="node home">
+        <div class="n-date">19 – 30/9 · tại nhà</div>
+        <p class="home-note">Đây là “tuần không laser” — thời điểm tốt để <b>đưa hoạt chất mờ thâm nâu</b> vào buổi tối (retinol nồng độ thấp / tranexamic / vitamin C dịu), tăng dần cách ngày. Ngưng lại 2–3 ngày trước Buổi 3.</p>
+      </div>
+
+      <div class="node visit">
+        <div class="n-date">Buổi 3 · Thứ 5, 1/10 <span style="color:var(--muted)">(cách ngày bay 1 tuần)</span></div>
+        <div class="n-title">Buổi laser cuối trước chuyến đi</div>
+        <div class="visit-card" data-visit="3">
+          <div class="combo"><span class="chip">피코토닝</span><span class="chip">빛타민케어</span><span class="chip">기본 마스크</span></div>
+          <p class="visit-note">Bắn <b>nhẹ nhàng</b>, ưu tiên da phẳng đẹp &amp; ẩm hơn là ép sắc tố. Khoảng 7 ngày là đủ để mọi vết đỏ/sậm tạm thời lắng xuống trước khi bay.</p>
+          <button class="toggle" aria-pressed="false"><span class="box" aria-hidden="true"></span><span class="lbl">Đánh dấu đã hoàn thành</span></button>
+        </div>
+      </div>
+
+      <div class="node home">
+        <div class="n-date">6 – 7/10 · tại nhà <span class="opt">Tùy chọn</span></div>
+        <div class="n-title" style="font-size:.98rem">“Glow day” trước khi bay</div>
+        <p class="home-note">Nếu muốn, đặt thêm một buổi <b>chỉ 빛타민케어 + 기본 마스크</b> (không laser) 1–2 ngày trước chuyến đi để cấp ẩm và căng bóng — hoàn toàn không rủi ro sắc tố. Hoặc thay bằng mặt nạ dịu &amp; cấp ẩm tại nhà.</p>
+      </div>
+
+      <div class="node trip">
+        <div class="n-date">Thứ 5 · 8/10/2026</div>
+        <div class="n-title">✈️ Bay đi Thái Lan</div>
+        <p class="home-note">Da sáng, đều màu và đủ ẩm. Việc quan trọng nhất mang theo: <b>kem chống nắng SPF50+</b> và thói quen thoa lại — nắng nhiệt đới rất mạnh với làn da vừa laser.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Home routine -->
+  <section id="cham-tai-nha">
+    <div class="sec-head"><span class="no">05</span><div><h2>Chăm da tại nhà mỗi ngày</h2>
+      <p class="lead">Phòng khám chiếm ~10% kết quả; 90% còn lại là những gì bạn làm mỗi sáng và tối. Giữ đơn giản và đều đặn.</p></div></div>
+    <div class="routine">
+      <div class="rcard am">
+        <div class="top">☀️ Buổi sáng</div>
+        <ol class="steps">
+          <li><b>Rửa mặt dịu nhẹ</b><small>sữa rửa pH thấp, không cần tạo bọt mạnh</small></li>
+          <li><b>Serum làm dịu / sáng da</b><small>niacinamide (hoặc vitamin C nồng độ thấp) — tránh vit C đậm lên vết đỏ mới</small></li>
+          <li><b>Kem dưỡng ẩm phục hồi</b><small>ceramide · panthenol · cica</small></li>
+          <li class="star"><b>Kem chống nắng SPF50+ PA++++</b><small>bắt buộc — thoa lại mỗi 2–3 giờ khi ra nắng</small></li>
+        </ol>
+      </div>
+      <div class="rcard pm">
+        <div class="top">🌙 Buổi tối</div>
+        <ol class="steps">
+          <li><b>Tẩy trang + rửa mặt</b><small>double cleanse nếu có kem chống nắng / trang điểm</small></li>
+          <li><b>Serum điều trị</b><small>đỏ → niacinamide, azelaic, cica · nâu → retinol thấp/tranexamic (tuần không laser)</small></li>
+          <li><b>Kem dưỡng phục hồi</b><small>lớp dày hơn ban ngày để da hồi qua đêm</small></li>
+          <li><b>Mặt nạ cấp ẩm / làm dịu</b><small>2–3 lần/tuần</small></li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <h3><span class="ic">✦</span> Nguyên tắc vàng: Dịu → Phục hồi → Sáng</h3>
+      <p style="color:var(--ink-soft); font-size:.92rem">Đừng dùng hoạt chất mạnh (retinoid, AHA/BHA đậm, vitamin C nồng độ cao) lên <b>vết đỏ còn mới</b>. Kích ứng sẽ đánh thức tế bào sắc tố và khiến thâm đỏ (PIE) chuyển thành thâm nâu (PIH) khó trị hơn. Làm dịu cho ổn định trước, rồi mới đẩy sáng.</p>
+    </div>
+
+    <div class="callout laser">
+      <h3>🩹 Quanh mỗi buổi laser — rất quan trọng</h3>
+      <ul>
+        <li><b>Trước 2–3 ngày:</b> ngưng retinoid, AHA/BHA, vitamin C đậm — để da “trơn” và bình tĩnh.</li>
+        <li><b>Ngày 1–2 sau:</b> đỏ/ấm nhẹ là bình thường → chườm mát, kem phục hồi dày, <b>không</b> trang điểm lên vùng vừa bắn trong ngày đầu.</li>
+        <li><b>Trong 1 tuần:</b> tránh xông hơi, 찜질방, hồ bơi, tập đổ nhiều mồ hôi, rượu bia, thuốc lá.</li>
+        <li><b>Đốm có thể sậm màu tạm thời</b> rồi bong nhẹ — <b>không cạy, không gãi</b>, cứ dưỡng ẩm và để tự bong.</li>
+        <li><b>Chống nắng nghiêm ngặt:</b> sau laser da bắt nắng hơn, dễ thâm ngược nếu lơ là.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 6. Thailand sun -->
+  <section id="di-thai">
+    <div class="sec-head"><span class="no">06</span><div><h2>Chuẩn bị cho nắng Thái Lan</h2>
+      <p class="lead">Đây là mắt xích dễ làm hỏng mọi công sức nhất. Da vừa laser + nắng nhiệt đới = thâm nâu rất dễ quay lại nếu không che chắn kỹ.</p></div></div>
+    <div class="sun-grid">
+      <div class="do">
+        <div class="h">Nên</div>
+        <ul>
+          <li>Thoa <b>lại</b> kem chống nắng mỗi 2–3 giờ, và sau khi bơi/đổ mồ hôi.</li>
+          <li>Đội mũ rộng vành, đeo kính râm, che khăn khi ở ngoài lâu.</li>
+          <li>Tìm bóng râm trong khung <b>10h–15h</b> nắng gắt nhất.</li>
+          <li>Uống đủ nước &amp; dưỡng ẩm — da đủ nước trông sáng khỏe hơn.</li>
+        </ul>
+      </div>
+      <div class="dont">
+        <div class="h">Tránh</div>
+        <ul>
+          <li>Phơi nắng trực tiếp / tắm nắng làm rám da.</li>
+          <li>Dùng retinoid hay tẩy da chết mạnh khi đang phơi nắng nhiều.</li>
+          <li>Quên thoa lại — một lớp buổi sáng <b>không</b> đủ cho cả ngày.</li>
+          <li>Cạy vảy/đốm đang bong khiến thâm đậm hơn.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="pack">
+      <div class="h">Túi chống nắng mang theo</div>
+      <div class="items">
+        <span class="item">Kem chống nắng SPF50+ PA++++</span>
+        <span class="item">Kem/xịt chống nắng thoa lại</span>
+        <span class="item">Mũ rộng vành</span>
+        <span class="item">Kính râm</span>
+        <span class="item">Khẩu trang / khăn che</span>
+        <span class="item">Kem dưỡng phục hồi</span>
+        <span class="item">Mặt nạ làm dịu</span>
+        <span class="item">Gel lô hội / panthenol sau nắng</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. Expectations -->
+  <section id="ky-vong">
+    <div class="sec-head"><span class="no">07</span><div><h2>Kỳ vọng thực tế</h2></div></div>
+    <div class="expect">
+      <p><b>Trong 5 tuần / 3 buổi</b>, bạn sẽ thấy: da sáng &amp; đều màu hơn, thâm nâu mờ dần, thâm đỏ dịu lại, da căng bóng khỏe hơn — đủ để tự tin trong chuyến đi.</p>
+      <p><b>Thâm nâu (PIH)</b> thường cần nhiều buổi pico hơn — khoảng <b>8–10+ buổi</b>, cách nhau 1–2 tuần — để mờ ~60–70%. Đừng kỳ vọng sạch hoàn toàn trong 5 tuần; hãy tiếp tục lộ trình sau khi về.</p>
+      <p><b>Thâm đỏ (PIE)</b> cải thiện dần nhờ làm dịu + chống nắng + thời gian, không nên nôn nóng ép bằng laser mạnh.</p>
+    </div>
+    <p class="disclaimer">Đây là gợi ý tham khảo dựa trên thông tin công khai về 쁨의원 và nguyên tắc chăm da sau trị liệu. Bác sĩ tại phòng khám là người trực tiếp khám và quyết định mức năng lượng, số buổi và khoảng cách phù hợp với da bạn — hãy ưu tiên tư vấn của họ, và báo ngay nếu da có phản ứng bất thường.</p>
+  </section>
+
+</main>
+
+<footer>
+  <p class="sig">Da khỏe từ sự đều đặn, không phải vội vàng.</p>
+  <p style="margin-top:8px">Lộ trình cá nhân · cập nhật 2/9/2026 · mục tiêu 8/10/2026</p>
+</footer>
+
+<script>
+  // Countdown to the trip (8 Oct 2026)
+  (function(){
+    var el = document.getElementById('countdown');
+    if(!el) return;
+    try{
+      var trip = new Date(2026, 9, 8); // month is 0-indexed -> October
+      var now = new Date();
+      var t0 = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      var days = Math.round((trip - t0) / 86400000);
+      if(days > 1) el.textContent = 'còn ' + days + ' ngày';
+      else if(days === 1) el.textContent = 'còn 1 ngày';
+      else if(days === 0) el.textContent = 'Hôm nay lên đường!';
+      else el.textContent = 'Chúc chuyến đi rực rỡ!';
+    }catch(e){ /* keep fallback text */ }
+  })();
+
+  // Persist "completed" state for the 3 clinic visits
+  (function(){
+    var cards = document.querySelectorAll('.visit-card[data-visit]');
+    cards.forEach(function(card){
+      var id = 'ppeum-visit-' + card.getAttribute('data-visit');
+      var btn = card.querySelector('.toggle');
+      var lbl = card.querySelector('.lbl');
+      function render(done){
+        card.classList.toggle('done', done);
+        btn.setAttribute('aria-pressed', done ? 'true' : 'false');
+        if(lbl) lbl.textContent = done ? 'Đã hoàn thành ✓' : 'Đánh dấu đã hoàn thành';
+      }
+      var saved = false;
+      try{ saved = localStorage.getItem(id) === '1'; }catch(e){}
+      render(saved);
+      btn.addEventListener('click', function(){
+        var done = card.classList.contains('done');
+        var next = !done;
+        try{ localStorage.setItem(id, next ? '1' : '0'); }catch(e){}
+        render(next);
+      });
+    });
+  })();
+</script>
+
+</body>
 </html>
